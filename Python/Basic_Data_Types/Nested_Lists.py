@@ -20,18 +20,23 @@
 
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-N = int(raw_input())
+n = int(input())
+c = []
+d = []
+for i in range(n):       
+    a =[] 
+    for j in range(2): 
+         if j == 0:
+            a.append(input()) 
+         else:
+            x=float(input())
+            a.append(x)
+            d.append(x)       
+    c.append(a) 
+c.sort()
+d.sort()
+d = list(dict.fromkeys(d))
+for i in range(0,n):
+        if d[1] == c[i][1]:
+            print(c[i][0])
 
-students = []
-for i in range(2*N):
-    students.append(raw_input().split())
-grades = {}
-for j in range(0, len(students), 2):
-    grades[students[j][0]] = float(students[j + 1][0])
-result = []
-num_to_match = sorted(set(grades.values()))[1]
-for pupil in grades.keys():
-    if grades[pupil] == num_to_match:
-        result.append(pupil)
-for k in sorted(result):
-    print k
